@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mniInicio"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/mniProducto"
+        android:title="Productos" />
+    <item
+        android:id="@+id/mniServicio"
+        android:title="Servicios" />
+    <item
+        android:id="@+id/mniSucursal"
+        android:title="Sucursales" />
+    <item
+        android:id="@+id/mniInfo"
+        android:title="Acerca de la App" />
+</menu>

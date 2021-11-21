@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lytContentServicios"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServicioActivity">
+
+    <LinearLayout
+        android:id="@+id/lytServicios"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblServicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/accent"
+            android:text="Servicios Disponibles"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:id="@+id/lytListado"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="5sp"
+            android:paddingTop="5sp"
+            android:paddingRight="5sp"
+            android:paddingBottom="5sp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5sp"
+                android:paddingTop="5sp"
+                android:paddingRight="5sp"
+                android:paddingBottom="5sp">
+
+                <ImageButton
+                    android:id="@+id/ibtServicio1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="Servicio 1"
+                    app:srcCompat="@drawable/srv1" />
+
+                <LinearLayout
+                    android:id="@+id/lytServicio1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="5sp">
+
+                    <TextView
+                        android:id="@+id/lblServicio1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Domicilio express"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblDesServicio1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Envío a todo lugar \nTransporte propio de la \nempresa" />
+
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5sp"
+                android:paddingTop="5sp"
+                android:paddingRight="5sp"
+                android:paddingBottom="5sp" >
+
+                <ImageButton
+                    android:id="@+id/ibtServicio2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="Servicio 2"
+                    app:srcCompat="@drawable/srv2" />
+
+                <LinearLayout
+                    android:id="@+id/lytServicio2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="5sp">
+
+                    <TextView
+                        android:id="@+id/lblServicio2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Confección al Mayor"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblDesServicio2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Diseño para uniformes \ncorporativos" />
+
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5sp"
+                android:paddingTop="5sp"
+                android:paddingRight="5sp"
+                android:paddingBottom="5sp" >
+
+                <ImageButton
+                    android:id="@+id/ibtServicio3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="Servicio 3"
+                    app:srcCompat="@drawable/srv3" />
+
+                <LinearLayout
+                    android:id="@+id/lytServicio3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_column="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="5sp">
+
+                    <TextView
+                        android:id="@+id/lblServicio3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Diseño ocasionales"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblDesServicio3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Elaboración de chaquetas \npersonalizadas" />
+
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="5sp"
+                android:paddingTop="5sp"
+                android:paddingRight="5sp"
+                android:paddingBottom="5sp" />
+        </TableLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lytContent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <TableLayout
+        android:id="@+id/lytPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:textAlignment="center">
+
+        <TableRow
+            android:id="@+id/lytListado"
+            android:layout_width="match_parent"
+            android:layout_height="600dp">
+
+            <LinearLayout
+                android:id="@+id/lytDatos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="3"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lblIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/accent"
+                    android:text="Nuesstra Organización"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/lblIntroText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Son prendas con amplia variedad de diseños por lo tanto se adaptan a diferentes actividades. En primer lugar, Usamos telas de Lafayette y textilia para la elaboración de chaquetas, este material tiene una repelencia a líquidos el 90%. Es decir, que lo protegerá al caminar bajo una lluvia.  Colores de chaquetas para todos los gustos, manejamos una amplia gama de colores sobre todo contamos con los mejores proveedores de tela. "
+                    android:textAlignment="textStart" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/lblHistoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/accent"
+                    android:text="Nuestra Historia"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/lblHistoriaText1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:text="La historia empezó a escribirse en un pequeño taller en un humilde pueblo de Colombia hacia 1870. En 1907, nació está empresa en Bogotá, coronándose como la primera gran empresa textil de la localidad, que no ha cesado actividad en sus 110 años." />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/lblHistoriaText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:text="Hoy por hoy en el país hay varias sucursales destinadas al textil. El sector emplea a más de 5.000 personas y produce sus gustos y medidas cada año." />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/lytBotones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:textAlignment="center">
+
+            <Button
+                android:id="@+id/btnNovedades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/accent"
+                android:text="Novedades"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11.5sp" />
+
+            <Button
+                android:id="@+id/btnFavoritos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primary_dark"
+                android:text="Favoritos"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11.5sp" />
+
+            <Button
+                android:id="@+id/btnNotificaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/accent"
+                android:text="Notificaciones"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11.5sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
