@@ -20,28 +20,13 @@ import android.widget.Toast;
 public class ServicioActivity extends AppCompatActivity {
 
     /**
-     * Variable que representa el botón del servicio 1
-     */
-    private ImageButton ibtServicio1;
-
-    /**
-     * Variable que representa el botón del servicio 2
-     */
-    private ImageButton ibtServicio2;
-
-    /**
-     * Variable que representa el botón del servicio 3
-     */
-    private ImageButton ibtServicio3;
-
-    /**
      * Método onCreate: constructor de la pantalla o vista asociada
      *
-     * @param savedInstanceState instancia de la pantalla en la ejecución
+     * @param savedInstState instancia de la pantalla en la ejecución
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstState) {
+        super.onCreate(savedInstState);
         setContentView(R.layout.activity_servicio);
 
         /**
@@ -53,30 +38,42 @@ public class ServicioActivity extends AppCompatActivity {
         /**
          * Se carga los botones a la pantalla
          */
-        ibtServicio1 = (ImageButton) findViewById(R.id.ibtServicio1);
-        ibtServicio2 = (ImageButton) findViewById(R.id.ibtServicio2);
-        ibtServicio3 = (ImageButton) findViewById(R.id.ibtServicio3);
+
+        /**
+         * Variable que representa el botón del servicio 1
+         */
+        ImageButton ibtServicio1 = (ImageButton) findViewById(R.id.ibtServicio1);
+
+        /**
+         * Variable que representa el botón del servicio 2
+         */
+        ImageButton ibtServicio2 = (ImageButton) findViewById(R.id.ibtServicio2);
+
+        /**
+         * Variable que representa el botón del servicio 3
+         */
+        ImageButton ibtServicio3 = (ImageButton) findViewById(R.id.ibtServicio3);
 
         /**
          * Implementación y configuración de listeners onClick
          */
         ibtServicio1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se seleciona el servicio 1",
                         Toast.LENGTH_SHORT).show();
             }
         });
         ibtServicio2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se seleciona el servicio 2",
                         Toast.LENGTH_SHORT).show();
             }
         });
         ibtServicio3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se seleciona el servicio 3",
                         Toast.LENGTH_SHORT).show();
             }

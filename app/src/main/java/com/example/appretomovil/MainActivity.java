@@ -20,28 +20,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * Variable que representa el botón de novedades
-     */
-    private Button btnNovedades;
-
-    /**
-     * Variable que representa el botón de fqvoritos
-     */
-    private Button btnFavoritos;
-
-    /**
-     * Variable que representa el botón de notificaciones
-     */
-    private Button btnNotificaciones;
-
-    /**
      * Método onCreate: constructor de la pantalla o vista asociada
      *
-     * @param savedInstanceState instancia de la pantalla en la ejecución
+     * @param savedInstState instancia de la pantalla en la ejecución
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstState) {
+        super.onCreate(savedInstState);
         setContentView(R.layout.activity_main);
 
         /**
@@ -53,30 +38,42 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Se carga los botones a la pantalla
          */
-        btnNovedades = (Button) findViewById(R.id.btnNovedades);
-        btnFavoritos = (Button) findViewById(R.id.btnFavoritos);
-        btnNotificaciones = (Button) findViewById(R.id.btnNotificaciones);
+
+        /**
+         * Variable que representa el botón de novedades
+         */
+        Button btnNovedades = (Button) findViewById(R.id.btnNovedades);
+
+        /**
+         * Variable que representa el botón de fqvoritos
+         */
+        Button btnFavoritos = (Button) findViewById(R.id.btnFavoritos);
+
+        /**
+         * Variable que representa el botón de notificaciones
+         */
+        Button btnNotificaciones = (Button) findViewById(R.id.btnNotificaciones);
 
         /**
          * Implementación y configuración de listeners onClick
          */
         btnNovedades.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de novedades",
                         Toast.LENGTH_SHORT).show();
             }
         });
         btnFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de favoritos",
                         Toast.LENGTH_SHORT).show();
             }
         });
         btnNotificaciones.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de " +
                                 "notificaciones", Toast.LENGTH_SHORT).show();
             }

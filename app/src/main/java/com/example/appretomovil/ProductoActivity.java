@@ -20,28 +20,13 @@ import android.widget.Toast;
 public class ProductoActivity extends AppCompatActivity {
 
     /**
-     * Variable que representa el botón de la chaqueta 1
-     */
-    private ImageButton ibtChaqueta1;
-
-    /**
-     * Variable que representa el botón de la chaqueta 2
-     */
-    private ImageButton ibtChaqueta2;
-
-    /**
-     * Variable que representa el botón de la chaqueta 3
-     */
-    private ImageButton ibtChaqueta3;
-
-    /**
      * Método onCreate: constructor de la pantalla o vista asociada
      *
-     * @param savedInstanceState instancia de la pantalla en la ejecución
+     * @param savedInstState instancia de la pantalla en la ejecución
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstState) {
+        super.onCreate(savedInstState);
         setContentView(R.layout.activity_producto);
 
         /**
@@ -53,30 +38,42 @@ public class ProductoActivity extends AppCompatActivity {
         /**
          * Se carga los botones a la pantalla
          */
-        ibtChaqueta1 = (ImageButton) findViewById(R.id.ibtChaqueta1);
-        ibtChaqueta2 = (ImageButton) findViewById(R.id.ibtChaqueta2);
-        ibtChaqueta3 = (ImageButton) findViewById(R.id.ibtChaqueta3);
+
+        /**
+         * Variable que representa el botón de la chaqueta 1
+         */
+        ImageButton ibtChaqueta1 = (ImageButton) findViewById(R.id.ibtChaqueta1);
+
+        /**
+         * Variable que representa el botón de la chaqueta 2
+         */
+        ImageButton ibtChaqueta2 = (ImageButton) findViewById(R.id.ibtChaqueta2);
+
+        /**
+         * Variable que representa el botón de la chaqueta 3
+         */
+        ImageButton ibtChaqueta3 = (ImageButton) findViewById(R.id.ibtChaqueta3);
 
         /**
          * Implementación y configuración de listeners onClick
          */
         ibtChaqueta1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se seleciona la chaqueta 1",
                         Toast.LENGTH_SHORT).show();
             }
         });
         ibtChaqueta2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se seleciona la chaqueta 2",
                         Toast.LENGTH_SHORT).show();
             }
         });
         ibtChaqueta3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se seleciona la chaqueta 3",
                         Toast.LENGTH_SHORT).show();
             }
