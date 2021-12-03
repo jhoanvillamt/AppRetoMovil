@@ -1,8 +1,8 @@
 package com.example.appretomovil;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 /**
  * Clase Activity Main
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
 public class MainActivity extends AppCompatActivity {
@@ -55,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         Button btnNotificaciones = (Button) findViewById(R.id.btnNotificaciones);
 
         /**
+         * Variable que representa el fragment inicial
+         */
+        Fragment frgInicio = new InicioFragment();
+
+        /**
          * Implementación y configuración de listeners onClick
          */
         btnNovedades.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +83,32 @@ public class MainActivity extends AppCompatActivity {
                                 "notificaciones", Toast.LENGTH_SHORT).show();
             }
         });
+
+        /**
+         * Carga de fragment inicial en la pantalla
+         */
+        getSupportFragmentManager().beginTransaction().add(R.id.lytFragments, frgInicio).commit();
+    }
+
+
+    /**
+     * Método onStart para inicio de la pantalla o vista asociada
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(getApplicationContext(), "Bienvenido de vuelta",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Método onPause para pausa de la pantalla o vista asociada
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(getApplicationContext(), "Hasta pronto, aquí te esperamos",
+                Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -102,33 +133,69 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int idItem = item.getItemId();
-        if (idItem == R.id.mniInicio) {
-            Toast.makeText(getApplicationContext(), "Se dirige a la pantalla principal",
+        if (idItem == R.id.carrito) {
+            Toast.makeText(getApplicationContext(), "Se dirige al carro de compras",
                     Toast.LENGTH_SHORT).show();
-            Intent inicio = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(inicio);
+        }
+        if (idItem == R.id.mniInicio) {
+            /**
+             * Variable que representa el fragment inicial
+             */
+            Fragment frgInicio = new InicioFragment();
+
+            /**
+             * Carga de fragment inicial en la pantalla
+             */
+            getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgInicio)
+                    .commit();
         }
         if (idItem == R.id.mniProducto) {
-            Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de productos",
-                    Toast.LENGTH_SHORT).show();
-            Intent producto = new Intent(getApplicationContext(), ProductoActivity.class);
-            startActivity(producto);
+            /**
+             * Variable que representa el fragment productos
+             */
+            Fragment frgProducto = new ProductoFragment();
+
+            /**
+             * Carga de fragment inicial en la pantalla
+             */
+            getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgProducto)
+                    .commit();
         }
         if (idItem == R.id.mniServicio) {
-            Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de servicios",
-                    Toast.LENGTH_SHORT).show();
-            Intent servicio = new Intent(getApplicationContext(), ServicioActivity.class);
-            startActivity(servicio);
+            /**
+             * Variable que representa el fragment servicios
+             */
+            Fragment frgServicio = new ServicioFragment();
+
+            /**
+             * Carga de fragment inicial en la pantalla
+             */
+            getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgServicio)
+                    .commit();
         }
         if (idItem == R.id.mniSucursal) {
-            Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de sucursales",
-                    Toast.LENGTH_SHORT).show();
-            Intent sucursal = new Intent(getApplicationContext(), SucursalActivity.class);
-            startActivity(sucursal);
+            /**
+             * Variable que representa el fragment sucursales
+             */
+            Fragment frgSucursal = new SucursalFragment();
+
+            /**
+             * Carga de fragment inicial en la pantalla
+             */
+            getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgSucursal)
+                    .commit();
         }
         if (idItem == R.id.mniInfo) {
-            Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de información " +
-                            "del app", Toast.LENGTH_SHORT).show();
+            /**
+             * Variable que representa el fragment info
+             */
+            Fragment frgInfo = new InfoFragment();
+
+            /**
+             * Carga de fragment inicial en la pantalla
+             */
+            getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgInfo)
+                    .commit();
         }
         return super.onOptionsItemSelected(item);
     }

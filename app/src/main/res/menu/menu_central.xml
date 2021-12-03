@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/carrito"
+        android:title=""
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        app:showAsAction="always"
+        />
+    <item
         android:id="@+id/mniInicio"
         android:title="Inicio" />
     <item
@@ -17,4 +23,5 @@
     <item
         android:id="@+id/mniInfo"
         android:title="Acerca de la App" />
+
 </menu>

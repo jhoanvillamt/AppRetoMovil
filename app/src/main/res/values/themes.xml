@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.AppRetoMovil" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_light</item>
-        <item name="colorOnPrimary">@color/secondary_text</item>
+        <item name="colorPrimary">@color/azul_claro</item>
+        <item name="colorPrimaryVariant">@color/azul_suave</item>
+        <item name="colorOnPrimary">@color/blanco</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/primary_dark</item>
-        <item name="colorSecondaryVariant">@color/accent</item>
-        <item name="colorOnSecondary">@color/primary_text</item>
+        <item name="colorSecondary">@color/rojo_claro</item>
+        <item name="colorSecondaryVariant">@color/rojo_suave</item>
+        <item name="colorOnSecondary">@color/negro_suave</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

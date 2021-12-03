@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServicioFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txvServicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondary"
+            android:textColor="?attr/colorOnSecondary"
+            android:text="Servicios Disponibles"
+            android:textAlignment="center"
+            android:fontFamily="@font/daughter"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/scvServicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="5sp"
+                android:paddingTop="5sp"
+                android:paddingRight="5sp"
+                android:paddingBottom="5sp">
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbServicio1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Servicio 1"
+                                    android:src="@drawable/srv1" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoServicio1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomServicio1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Domicilio express"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDesServicio1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Envío a todo lugar \nTransporte propio de \nnuestras sucursales"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbServicio2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Servicio 2"
+                                    android:src="@drawable/srv2" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoServicio2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomServicio2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Confección al mayoreo"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDesServicio2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Diseño para uniformes coorporativos"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbServicio3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Servicio 3"
+                                    android:src="@drawable/srv3" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoServicio3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomServicio3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Diseño ocasionales"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDesServicio3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Elaboración de chaquetas personalizadas"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbServicio4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Servicio 4"
+                                    android:src="@drawable/srv1" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoServicio4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomServicio4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Domicilio express"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDesServicio4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Envío a todo lugar \nTransporte propio de nuestras sucursales"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbServicio5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Servicio 5"
+                                    android:src="@drawable/srv2" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoServicio5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomServicio5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Confección al mayoreo"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDesServicio5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Diseño para uniformes coorporativos"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbServicio6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Servicio 6"
+                                    android:src="@drawable/srv3" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoServicio6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomServicio6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Diseño ocasionales"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDesServicio6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Elaboración de chaquetas personalizadas"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

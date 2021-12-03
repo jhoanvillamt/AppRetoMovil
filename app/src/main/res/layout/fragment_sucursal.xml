@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SucursalFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txvSucursales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondary"
+            android:textColor="?attr/colorOnSecondary"
+            android:text="Sucursales Abiertas"
+            android:textAlignment="center"
+            android:fontFamily="@font/daughter"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/scvSucursales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingLeft="5sp"
+                android:paddingTop="5sp"
+                android:paddingRight="5sp"
+                android:paddingBottom="5sp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbSucursal1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Sucursal 1"
+                                    android:src="@drawable/scs1" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoSucursal1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomSucursal1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sucursal Cali"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txvDirSucursal1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Av. 2 Nte. #10 - 70"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:textSize="18sp"
+                                        android:textStyle="italic" />
+
+                                    <TextView
+                                        android:id="@+id/txvTelSucursal1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tel: 3435539"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/txvHorSucursal1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Horario de atención:\nLunes a Viernes\n10:00 am - 3:00 pm"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbSucursal2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Sucursal 2"
+                                    android:src="@drawable/scs2" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoSucursal2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomSucursal2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sucursal Medellín"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDirSucursal2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cll. 44 # 52 - 165"
+                                        android:textSize="18sp"
+                                        android:textStyle="italic"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvTelSucursal2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tel: 7648384"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/txvHorSucursal2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Horario de atención:\nLuneas a Viernes\n9:00 am - 5:00 pm"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbSucursal3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Sucursal 3"
+                                    android:src="@drawable/scs3" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoSucursal3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomSucursal3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sucursal Bogotá"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDirSucursal3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cra. 8 # 10 - 65"
+                                        android:textSize="18sp"
+                                        android:textStyle="italic"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvTelSucursal3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tel: 8742843"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/txvHorSucursal3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Horario de atención:\nLuneas a Viernes\n8:30 am - 5:00 pm"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbSucursal4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Sucursal 4"
+                                    android:src="@drawable/scs1" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoSucursal4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomSucursal4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sucursal Cali"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDirSucursal4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Av. 2 Nte. #10 - 70"
+                                        android:textSize="18sp"
+                                        android:textStyle="italic"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvTelSucursal4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tel: 3435539"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/txvHorSucursal4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Horario de atención:\nLunes a Viernes\n10:00 am - 3:00 pm"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbSucursal5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Sucursal 5"
+                                    android:src="@drawable/scs2" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoSucursal5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomSucursal5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sucursal Medellín"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDirSucursal5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cll. 44 # 52 - 165"
+                                        android:textSize="18sp"
+                                        android:textStyle="italic"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvTelSucursal5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tel: 7648384"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/txvHorSucursal5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Horario de atención:\nLuneas a Viernes\n9:00 am - 5:00 pm"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imbSucursal6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#00FFFFFF"
+                                    android:contentDescription="Sucursal 6"
+                                    android:src="@drawable/scs3" />
+
+                                <LinearLayout
+                                    android:id="@+id/lytDatoSucursal6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txvNomSucursal6"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sucursal Bogotá"
+                                        android:fontFamily="@font/daughter"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvDirSucursal6"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cra. 8 # 10 - 65"
+                                        android:textSize="18sp"
+                                        android:textStyle="italic"
+                                        android:textColor="?attr/colorOnSecondary" />
+
+                                    <TextView
+                                        android:id="@+id/txvTelSucursal6"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tel: 8742843"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                    <TextView
+                                        android:id="@+id/txvHorSucursal6"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Horario de atención:\nLuneas a Viernes\n8:30 am - 5:00 pm"
+                                        android:textColor="?attr/colorOnSecondary"
+                                        android:fontFamily="@font/yellowtail"
+                                        android:textSize="16sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

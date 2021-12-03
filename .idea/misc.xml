@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_intro.xml" value="0.25" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_main2.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_producto.xml" value="0.25" />
         <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_servicio.xml" value="0.15579710144927536" />
         <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_servicio_01.xml" value="0.1" />
-        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_sucursal.xml" value="0.15579710144927536" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/activity_sucursal.xml" value="0.1" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/fragment_info.xml" value="0.25" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/fragment_inicio.xml" value="0.25" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/fragment_producto.xml" value="0.22" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/fragment_servicio.xml" value="0.33" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/fragment_sucursal.xml" value="0.33" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/item_producto.xml" value="0.25" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/item_servicio.xml" value="0.1" />
+        <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/layout/item_sucursal.xml" value="0.1" />
         <entry key="..\:/Users/Suzaku/AndroidStudioProjects/AppRetoMovil/app/src/main/res/menu/menu_central.xml" value="0.22552083333333334" />
       </map>
     </option>

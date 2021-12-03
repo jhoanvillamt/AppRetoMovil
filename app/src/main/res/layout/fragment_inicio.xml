@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InicioFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scvInicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/txvIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorSecondary"
+                    android:text="Nuestra Organización"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/daughter"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txvIntroText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/yellowtail"
+                    android:paddingLeft="5sp"
+                    android:paddingTop="5sp"
+                    android:paddingRight="5sp"
+                    android:paddingBottom="5sp"
+                    android:text="Son prendas con amplia variedad de diseños por lo tanto se adaptan a diferentes actividades. En primer lugar, Usamos telas de Lafayette y textilia para la elaboración de chaquetas, este material tiene una repelencia a líquidos el 90%. Es decir, que lo protegerá al caminar bajo una lluvia.  Colores de chaquetas para todos los gustos, manejamos una amplia gama de colores sobre todo contamos con los mejores proveedores de tela. "
+                    android:textAlignment="textStart"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txvHistoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorSecondary"
+                    android:text="Nuestra Historia"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:fontFamily="@font/daughter"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txvHistoria1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5sp"
+                    android:paddingTop="5sp"
+                    android:paddingRight="5sp"
+                    android:paddingBottom="5sp"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:fontFamily="@font/yellowtail"
+                    android:textSize="16sp"
+                    android:text="La historia empezó a escribirse en un pequeño taller en un humilde pueblo de Colombia hacia 1870. En 1907, nació está empresa en Bogotá, coronándose como la primera gran empresa textil de la localidad, que no ha cesado actividad en sus 110 años."
+                    android:textAlignment="textStart" />
+
+                <TextView
+                    android:id="@+id/txvHistoria2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5sp"
+                    android:paddingTop="5sp"
+                    android:paddingRight="5sp"
+                    android:paddingBottom="5sp"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:fontFamily="@font/yellowtail"
+                    android:textSize="16sp"
+                    android:text="Hoy por hoy en el país hay varias sucursales destinadas al textil. El sector emplea a más de 5.000 personas y produce sus gustos y medidas cada año."
+                    android:textAlignment="textStart" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>
