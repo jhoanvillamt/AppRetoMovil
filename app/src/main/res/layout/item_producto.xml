@@ -1,104 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TableLayout
+        <ImageButton
+            android:id="@+id/imbItemProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#00FF0000"
+            android:contentDescription="Chaqueta 1"
+            app:srcCompat="@drawable/chq1" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <TableRow
+            <TextView
+                android:id="@+id/txtItemNomProd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/daughter"
+                android:text="Chaqueta sport"
+                android:textColor="@color/negro_suave"
+                android:textColorHint="@color/negro_suave"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <!--android:textColor="?attr/colorOnSecondary"-->
 
-                <LinearLayout
+            <TextView
+                android:id="@+id/txtItemPreProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$150.000 COP"
+                android:textColor="@color/negro_suave"
+                android:textColorHint="@color/negro_suave"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/txtItemDesProd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/yellowtail"
+                android:text="Todas las tallas \nTodos los colores\n Algodón nacional"
+                android:textColor="@color/negro_suave"
+                android:textColorHint="@color/negro_suave" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imbItemFavProd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="Agregar a favoritos"
+                    android:minHeight="48dp"
+                    app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/imbItemCarProd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="Agregar a carrito"
+                    android:minHeight="48dp"
+                    app:srcCompat="@drawable/ic_baseline_add_shopping_cart_24" />
 
-                        <ImageButton
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:backgroundTint="#00FFFFFF"
-                            android:contentDescription="Chaqueta 1"
-                            app:srcCompat="@drawable/chq1" />
+            </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Chaqueta sport"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:textColor="?attr/colorOnSecondary" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textSize="20sp"
-                                android:textStyle="italic"
-                                android:text="$150.000 COP"
-                                android:textColor="?attr/colorOnSecondary" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Todas las tallas \nTodos los colores\n Algodón nacional"
-                                android:textColor="?attr/colorOnSecondary" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <ImageButton
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:backgroundTint="#00FFFFFF"
-                                    android:contentDescription="Agregar a favoritos"
-                                    android:minHeight="48dp"
-                                    app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
-
-                                <ImageButton
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:backgroundTint="#00FFFFFF"
-                                    android:contentDescription="Agregar a carrito"
-                                    android:minHeight="48dp"
-                                    app:srcCompat="@drawable/ic_baseline_add_shopping_cart_24" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </TableRow>
-
-        </TableLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

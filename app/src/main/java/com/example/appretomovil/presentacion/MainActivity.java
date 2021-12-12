@@ -1,8 +1,19 @@
-package com.example.appretomovil;
+package com.example.appretomovil.presentacion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
+import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,13 +22,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.appretomovil.R;
+
 /**
  * Clase Activity Main
  *
- * @version 1.1
+ * @version 1.2
  * @author Jhoan Villa G35 C4
  */
 public class MainActivity extends AppCompatActivity {
+
+    /**
+     * Variable que representa el identiicador dal canal para la notificaciones
+     */
+    private static final String CHANNEL_ID = "NOTIFICACION";
 
     /**
      * Método onCreate: constructor de la pantalla o vista asociada
@@ -67,20 +85,30 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de novedades",
                         Toast.LENGTH_SHORT).show();
+
+                crearDialogo("Novedades", "No se registran nuevos productos");
             }
         });
         btnFavoritos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de favoritos",
-                        Toast.LENGTH_SHORT).show();
+                /**
+                 * Variable que representa el fragment favorito
+                 */
+                Fragment frgFavorito = new FavoritoFragment();
+
+                /**
+                 * Carga de fragment de favorito en la pantalla
+                 */
+                getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
+                        frgFavorito).commit();
             }
         });
         btnNotificaciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Se dirige a la pantalla de " +
-                                "notificaciones", Toast.LENGTH_SHORT).show();
+                crearCanalNotificacion();
+                crearNotificacion("Notificaciones Miyagi", "No existen notiicaciones pendientes por leer");
             }
         });
 
@@ -198,5 +226,87 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Método para creación del aviso de notificaciones
+     *
+     * @param titulo título de la notificación
+     * @param contenido contenido de la notificación
+     */
+    private void crearNotificacion(String titulo, String contenido){
+        int notificaionId = 0;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher_round);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),
+                CHANNEL_ID);
+        builder.setSmallIcon(R.mipmap.ic_launcher_round);
+        builder.setLargeIcon(bitmap);
+        builder.setContentText(contenido);
+        builder.setContentTitle(titulo);
+        builder.setDefaults(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+        builder.setColor(Color.BLUE);
+        builder.setLights(Color.MAGENTA, 500, 2000);
+        builder.setVibrate(new long[]{1000,500});
+
+        NotificationManagerCompat manager = NotificationManagerCompat.from(getApplicationContext());
+        manager.notify(notificaionId, builder.build());
+    }
+
+    /**
+     * Método para creación del canal de comunicación de notificaciones
+     */
+    private void crearCanalNotificacion() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence nombre = "Notificacion";
+            NotificationChannel canal = new NotificationChannel(CHANNEL_ID, nombre,
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            manager.createNotificationChannel(canal);
+        }
+    }
+
+    /**
+     * Método para creación el cuadro de diálogo para novedades
+     *
+     * @param titulo título del diálogo
+     * @param contenido contenido del diálogo
+     */
+    private void crearDialogo(String titulo, String contenido){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(titulo);
+        builder.setMessage(contenido)
+                .setPositiveButton("Ver productos", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        /**
+                         * Variable que representa el fragment productos
+                         */
+                        Fragment frgProducto = new ProductoFragment();
+
+                        /**
+                         * Carga de fragment inicial en la pantalla
+                         */
+                        getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
+                                frgProducto).commit();
+                    }
+                })
+                .setNegativeButton("Ver favoritos", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        /**
+                         * Variable que representa el fragment favorito
+                         */
+                        Fragment frgFavorito = new FavoritoFragment();
+
+                        /**
+                         * Carga de fragment de favorito en la pantalla
+                         */
+                        getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
+                                frgFavorito).commit();
+                    }
+                })
+                .show();
     }
 }

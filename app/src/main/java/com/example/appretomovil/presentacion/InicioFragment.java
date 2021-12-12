@@ -1,4 +1,4 @@
-package com.example.appretomovil;
+package com.example.appretomovil.presentacion;
 
 import android.os.Bundle;
 
@@ -8,13 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.appretomovil.R;
+
 /**
- * Clase Fragment Info
+ * Clase Fragment Inicio
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
-public class InfoFragment extends Fragment {
+public class InicioFragment extends Fragment {
 
     /**
      * Método onCreate: constructor de la pantalla o vista asociada
@@ -27,7 +29,7 @@ public class InfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstState) {
-
-        return inflater.inflate(R.layout.fragment_info, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_inicio, container, false);
     }
 }

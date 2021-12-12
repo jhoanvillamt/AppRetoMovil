@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentacion.ProductoFragment">
+    tools:context=".presentacion.FavoritoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,31 +12,22 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txvProductos"
+            android:id="@+id/txvFavoritos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorSecondary"
-            android:textColor="?attr/colorOnSecondary"
-            android:text="Productos Disponibles"
-            android:textAlignment="center"
             android:fontFamily="@font/daughter"
+            android:text="Mis Favoritos"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <ListView
-            android:id="@+id/ltvProductos"
+            android:id="@+id/ltvFavoritos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabProducto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:src="@drawable/ic_baseline_add_24"
-            android:contentDescription="Agregar producto"
-            android:layout_margin="16dp" />
 
     </LinearLayout>
 
