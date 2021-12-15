@@ -52,6 +52,7 @@
                     android:textAlignment="center"
                     android:fontFamily="@font/yellowtail"
                     android:textColor="?attr/colorOnPrimary"
+                    android:backgroundTint="?attr/colorPrimary"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -126,7 +127,8 @@
                 android:padding="10dp"
                 android:text="Insertar"
                 android:textAlignment="center"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="?attr/colorOnSecondary"
+                android:backgroundTint="?attr/colorSecondary"
                 android:textSize="11sp" />
 
             <Button
@@ -138,6 +140,7 @@
                 android:padding="10dp"
                 android:text="Consultar"
                 android:textAlignment="center"
+                android:backgroundTint="?attr/colorPrimary"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="11sp" />
 
@@ -150,7 +153,8 @@
                 android:padding="10dp"
                 android:text="Eliminar"
                 android:textAlignment="center"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="?attr/colorOnSecondary"
+                android:backgroundTint="?attr/colorSecondary"
                 android:textSize="11sp" />
 
             <Button
@@ -162,6 +166,7 @@
                 android:padding="10dp"
                 android:text="Modificar"
                 android:textAlignment="center"
+                android:backgroundTint="?attr/colorPrimary"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="11sp" />
 
@@ -175,6 +180,7 @@
             android:text="Lista Productos"
             android:textAlignment="center"
             android:fontFamily="@font/yellowtail"
+            android:backgroundTint="?attr/colorPrimary"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="12sp" />
 

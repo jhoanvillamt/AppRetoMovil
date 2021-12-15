@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentacion.SucursalFragment">
+    tools:context=".presentacion.MapaFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
@@ -25,32 +24,20 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnMapa"
+            android:id="@+id/btnListado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/colorPrimary"
             android:fontFamily="@font/yellowtail"
-            android:text="Ver mapa"
+            android:text="Listado de sucursales"
             android:textAlignment="center"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="12sp" />
 
-        <ListView
-            android:id="@+id/ltvSucursales"
+        <org.osmdroid.views.MapView
+            android:id="@+id/osmMapa"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-        </ListView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabSucursal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:contentDescription="Agregar sucursal"
-            android:src="@drawable/ic_baseline_add_24" />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

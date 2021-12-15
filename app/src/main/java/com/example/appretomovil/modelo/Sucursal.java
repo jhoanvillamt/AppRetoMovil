@@ -3,7 +3,7 @@ package com.example.appretomovil.modelo;
 /**
  * Clase Entity Sucursal
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
 public class Sucursal {
@@ -34,6 +34,16 @@ public class Sucursal {
     String horario;
 
     /**
+     * Variable que representa la latitud de la sucursal
+     */
+    Double latitud;
+
+    /**
+     * Variable que representa la longitud de la sucursal
+     */
+    Double longitud;
+
+    /**
      * Variable que representa la imagen de la sucursal
      */
     byte[] imagen;
@@ -45,13 +55,18 @@ public class Sucursal {
      * @param direccion dirección de la sucursal
      * @param telefono teléfono de la sucursal
      * @param horario horario de atención de la sucursal
+     * @param latitud latitud de la sucursal
+     * @param longitud longitud de la sucursal
      * @param imagen imagen del producto
      */
-    public Sucursal(String nombre, String direccion, Integer telefono, String horario, byte[] imagen) {
+    public Sucursal(String nombre, String direccion, Integer telefono, String horario,
+                    Double latitud, Double longitud, byte[] imagen) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horario = horario;
+        this.latitud = latitud;
+        this.longitud = longitud;
         this.imagen = imagen;
     }
 
@@ -63,14 +78,19 @@ public class Sucursal {
      * @param direccion dirección de la sucursal
      * @param telefono teléfono de la sucursal
      * @param horario horario de atención de la sucursal
+     * @param latitud latitud de la sucursal
+     * @param longitud longitud de la sucursal
      * @param imagen imagen del producto
      */
-    public Sucursal(Integer id, String nombre, String direccion, Integer telefono, String horario, byte[] imagen) {
+    public Sucursal(Integer id, String nombre, String direccion, Integer telefono, String horario,
+                    Double latitud, Double longitud, byte[] imagen) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horario = horario;
+        this.latitud = latitud;
+        this.longitud = longitud;
         this.imagen = imagen;
     }
 
@@ -162,6 +182,42 @@ public class Sucursal {
      */
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    /**
+     * Método get: permite consultar la latitud de la sucursal
+     *
+     * @return latitud de la sucursal
+     */
+    public Double getLatitud() {
+        return latitud;
+    }
+
+    /**
+     * Método set: permite ingresar y/o modificar la longitud de la sucursal
+     *
+     * @param latitud latitud de la sucursal
+     */
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    /**
+     * Método get: permite consultar la longitud de la sucursal
+     *
+     * @return longitud de la sucursal
+     */
+    public Double getLongitud() {
+        return longitud;
+    }
+
+    /**
+     * Método set: permite ingresar y/o modificar la longitud de la sucursal
+     *
+     * @param longitud longitud de la sucursal
+     */
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
     }
 
     /**

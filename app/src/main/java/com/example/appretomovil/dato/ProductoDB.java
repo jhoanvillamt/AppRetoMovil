@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream;
 /**
  * Clase DB Producto
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
 public class ProductoDB extends SQLiteOpenHelper {
@@ -81,6 +81,8 @@ public class ProductoDB extends SQLiteOpenHelper {
                 "direccion VARCHAR," +
                 "telefono INTEGER," +
                 "horario VARCHAR," +
+                "latitud  FLOAT," +
+                "longitud FLOAT," +
                 "imagen BLOB" +
                 ")");
 
@@ -161,12 +163,13 @@ public class ProductoDB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO servicio (nombre,descripcion,imagen) VALUES ('Diseños ocasionales','Elaboración de chaquetas personalizadas',?)",
                 new Object[]{bytesrv3});
 
-        db.execSQL("INSERT INTO sucursal (nombre,direccion,telefono,horario,imagen) VALUES ('Sucursal Cali','Av. 2 Nte. # 10 - 70',3435539,'Lunes a Viernes\n10:00 am - 3:00 pm',?)",
+        db.execSQL("INSERT INTO sucursal (nombre,direccion,telefono,horario,latitud,longitud,imagen) VALUES ('Sucursal Bogotá','Cra. 8 # 10 - 65',8742843,'Lunes a Viernes\n8:30 am - 5:00 pm',4.598680783378407,-74.07648816711271,?)",
                 new Object[]{bytescs1});
-        db.execSQL("INSERT INTO sucursal (nombre,direccion,telefono,horario,imagen) VALUES ('Sucursal Medellín','Cll. 44 # 52 - 165',7648384,'Lunes a Viernes\n9:00 am - 5:00 pm',?)",
+        db.execSQL("INSERT INTO sucursal (nombre,direccion,telefono,horario,latitud,longitud,imagen) VALUES ('Sucursal Medellín','Cll. 44 # 52 - 165',7648384,'Lunes a Viernes\n9:00 am - 5:00 pm',6.24531867194279,-75.5737043888851,?)",
                 new Object[]{bytescs2});
-        db.execSQL("INSERT INTO sucursal (nombre,direccion,telefono,horario,imagen) VALUES ('Sucursal Bogotá','Cra. 8 # 10 - 65',8742843,'Lunes a Viernes\n8:30 am - 5:00 pm',?)",
+        db.execSQL("INSERT INTO sucursal (nombre,direccion,telefono,horario,latitud,longitud,imagen) VALUES ('Sucursal Cali','Av. 2 Nte. # 10 - 70',3435539,'Lunes a Viernes\n10:00 am - 3:00 pm',3.4543921395747,-76.53420718249488,?)",
                 new Object[]{bytescs3});
+
     }
 
     /**
@@ -419,10 +422,12 @@ public class ProductoDB extends SQLiteOpenHelper {
      * @param direccion dirección de la sucursal
      * @param telefono teléfono de la sucursal
      * @param horario horario de atención de la sucursal
+     * @param latitud latitud de la coordenada de la sucursal
+     * @param longitud longitud de la coordenada de la sucursal
      * @param imagen imagen del producto
      */
     public void insertSucursal(String nombre, String direccion, Integer telefono, String horario,
-                               byte[] imagen) {
+                               Float latitud, Float longitud, byte[] imagen) {
         String sqlSentencia = "INSERT INTO sucursal (nombre, direccion, telefono, horario, imagen) " +
                 "VALUES (?,?,?,?,?)";
         SQLiteStatement sqLiteStatement = sqLiteDatabase.compileStatement(sqlSentencia);
@@ -431,7 +436,9 @@ public class ProductoDB extends SQLiteOpenHelper {
         sqLiteStatement.bindString(2, direccion);
         sqLiteStatement.bindLong(3, telefono);
         sqLiteStatement.bindString(4, horario);
-        sqLiteStatement.bindBlob(5, imagen);
+        sqLiteStatement.bindDouble(5, latitud);
+        sqLiteStatement.bindDouble(6, longitud);
+        sqLiteStatement.bindBlob(7, imagen);
         sqLiteStatement.executeInsert();
     }
 
@@ -473,20 +480,25 @@ public class ProductoDB extends SQLiteOpenHelper {
      * @param direccion dirección de la sucursal
      * @param telefono teléfono de la sucursal
      * @param horario horario de atención de la sucursal
+     * @param latitud latitud de la coordenada de la sucursal
+     * @param longitud longitud de la coordenada de la sucursal
      * @param imagen imagen del producto
      */
     public void updateSucursal(Integer idSucursal, String nombre, String direccion,
-                               Integer telefono, String horario, byte[] imagen) {
+                               Integer telefono, String horario, Float latitud, Float longitud,
+                               byte[] imagen) {
         String sqlSentencia = "UPDATE sucursal SET nombre = ?, direccion = ?, telefono = ?, " +
-                "horario = ?, imagen = ? WHERE id = ?";
+                "horario = ?, latitud = ?, longitud = ?, imagen = ? WHERE id = ?";
         SQLiteStatement sqLiteStatement = sqLiteDatabase.compileStatement(sqlSentencia);
         sqLiteStatement.clearBindings();
         sqLiteStatement.bindString(1, nombre);
         sqLiteStatement.bindString(2, direccion);
         sqLiteStatement.bindLong(3, telefono);
         sqLiteStatement.bindString(4, horario);
-        sqLiteStatement.bindBlob(5, imagen);
-        sqLiteStatement.bindString(6, idSucursal.toString());
+        sqLiteStatement.bindDouble(5, latitud);
+        sqLiteStatement.bindDouble(6, longitud);
+        sqLiteStatement.bindBlob(7, imagen);
+        sqLiteStatement.bindString(8, idSucursal.toString());
         sqLiteStatement.executeUpdateDelete();
     }
 }

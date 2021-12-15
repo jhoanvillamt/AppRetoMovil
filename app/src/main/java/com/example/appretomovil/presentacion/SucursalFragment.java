@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.appretomovil.R;
@@ -61,6 +62,23 @@ public class SucursalFragment extends Fragment {
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
                         R.id.lytFragments, frgFormSucursal).commit();
+            }
+        });
+
+        Button btnMapa = (Button) view.findViewById(R.id.btnMapa);
+        btnMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View viewFab) {
+                /**
+                 * Variable que representa el fragment del mapa
+                 */
+                Fragment frgMapaSucursal = new MapaFragment();
+
+                /**
+                 * Carga de fragment inicial en la pantalla
+                 */
+                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                        R.id.lytFragments, frgMapaSucursal).commit();
             }
         });
 

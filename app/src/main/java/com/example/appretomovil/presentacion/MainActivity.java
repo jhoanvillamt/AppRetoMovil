@@ -205,13 +205,13 @@ public class MainActivity extends AppCompatActivity {
             /**
              * Variable que representa el fragment sucursales
              */
-            Fragment frgSucursal = new SucursalFragment();
+            Fragment frgMapaSucursal = new MapaFragment();
 
             /**
              * Carga de fragment inicial en la pantalla
              */
-            getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgSucursal)
-                    .commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
+                    frgMapaSucursal).commit();
         }
         if (idItem == R.id.mniInfo) {
             /**

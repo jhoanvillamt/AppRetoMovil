@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Clase Caso de Uso Sucursal
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
 public class SucursalCasoUso {
@@ -47,7 +47,7 @@ public class SucursalCasoUso {
             while (cursor.moveToNext()) {
                 buffer.append("ID:"+ cursor.getString(0) +
                         " ,NOMBRE: " + cursor.getString(1) +
-                        " ,IMAGEN: " + cursor.getBlob(5).toString() + "\n");
+                        " ,IMAGEN: " + cursor.getBlob(7).toString() + "\n");
             }
             return buffer.toString();
         }
@@ -71,7 +71,9 @@ public class SucursalCasoUso {
                         cursor.getString(2),
                         cursor.getInt(3),
                         cursor.getString(4),
-                        cursor.getBlob(5)
+                        cursor.getDouble(5),
+                        cursor.getDouble(6),
+                        cursor.getBlob(7)
                 ));
             }
             return listaTemp;

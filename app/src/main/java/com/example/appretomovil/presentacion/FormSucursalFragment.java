@@ -32,7 +32,7 @@ import java.io.InputStream;
 /**
  * Clase Fragment Formulario Sucursal
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
 public class FormSucursalFragment extends Fragment {
@@ -61,6 +61,16 @@ public class FormSucursalFragment extends Fragment {
      * Variable que representa el campo del horario de atención en el formulario
      */
     private EditText txtHorarioSucursal;
+
+    /**
+     * Variable que representa el campo de la latitud en el formulario
+     */
+    private EditText txtLatitudSucursal;
+
+    /**
+     * Variable que representa el campo de la longitud en el formulario
+     */
+    private EditText txtLongitudSucursal;
 
     /**
      * Variable que representa el campo del identificador en el formulario
@@ -106,6 +116,8 @@ public class FormSucursalFragment extends Fragment {
         txtDireccionSucursal = (EditText) view.findViewById(R.id.txtDireccionSucursal);
         txtTelefonoSucursal = (EditText) view.findViewById(R.id.txtTelefonoSucursal);
         txtHorarioSucursal = (EditText) view.findViewById(R.id.txtHorarioProducto);
+        txtLatitudSucursal = (EditText) view.findViewById(R.id.txtLatitudSucursal);
+        txtLongitudSucursal = (EditText) view.findViewById(R.id.txtLongitudSucursal);
         txtIdSucursal = (EditText) view.findViewById(R.id.txtIdSucursal);
         imgSelectedSucursal = (ImageView) view.findViewById(R.id.imgSelectedSucursal);
 
@@ -130,6 +142,8 @@ public class FormSucursalFragment extends Fragment {
                             txtDireccionSucursal.getText().toString(),
                             Integer.parseInt(txtTelefonoSucursal.getText().toString()),
                             txtHorarioSucursal.getText().toString(),
+                            Float.parseFloat(txtLatitudSucursal.getText().toString()),
+                            Float.parseFloat(txtLongitudSucursal.getText().toString()),
                             sucursalCasoUso.imageViewToByte(imgSelectedSucursal)
                     );
                     limpiarCampos();
@@ -160,8 +174,10 @@ public class FormSucursalFragment extends Fragment {
                             txtDireccionSucursal.setText(cursor.getString(2));
                             txtTelefonoSucursal.setText(cursor.getString(3));
                             txtHorarioSucursal.setText(cursor.getString(4));
+                            txtLatitudSucursal.setText(cursor.getString(5));
+                            txtLongitudSucursal.setText(cursor.getString(6));
                             imgSelectedSucursal.setImageBitmap(sucursalCasoUso.
-                                    cargarBitmap(cursor.getBlob(5)));
+                                    cargarBitmap(cursor.getBlob(7)));
                         }
                     }
                 }
@@ -194,6 +210,8 @@ public class FormSucursalFragment extends Fragment {
                             txtDireccionSucursal.getText().toString(),
                             Integer.parseInt(txtTelefonoSucursal.getText().toString()),
                             txtHorarioSucursal.getText().toString(),
+                            Float.parseFloat(txtLatitudSucursal.getText().toString()),
+                            Float.parseFloat(txtLongitudSucursal.getText().toString()),
                             sucursalCasoUso.imageViewToByte(imgSelectedSucursal)
                     );
                     limpiarCampos();

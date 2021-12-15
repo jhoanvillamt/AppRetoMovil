@@ -48,65 +48,124 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:fontFamily="@font/yellowtail"
                     android:text="Cargar"
                     android:textAlignment="center"
-                    android:fontFamily="@font/yellowtail"
                     android:textColor="?attr/colorOnPrimary"
                     android:textSize="12sp" />
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/txtNombreSucursal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nombre"
-                android:textAlignment="center"
-                android:fontFamily="@font/yellowtail"
-                android:textColor="?attr/colorOnSecondary"
-                android:textSize="12sp"
-                android:minHeight="48dp"
-                android:text="" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/txtDireccionSucursal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Dirección"
-                android:textAlignment="center"
-                android:fontFamily="@font/yellowtail"
-                android:textColor="?attr/colorOnSecondary"
-                android:textSize="12sp"
-                android:minHeight="48dp"
-                android:text="" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/txtTelefonoSucursal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Teléfono"
-                android:inputType="number"
-                android:textAlignment="center"
-                android:fontFamily="@font/yellowtail"
-                android:textColor="?attr/colorOnSecondary"
-                android:textSize="12sp"
-                android:minHeight="48dp" />
+                    <EditText
+                        android:id="@+id/txtNombreSucursal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/yellowtail"
+                        android:hint="Nombre"
+                        android:minHeight="48dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="12sp" />
 
-            <EditText
-                android:id="@+id/txtHorarioProducto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Horario de atención"
-                android:textAlignment="center"
-                android:textColor="?attr/colorOnSecondary"
-                android:fontFamily="@font/yellowtail"
-                android:textSize="12sp"
-                android:minHeight="48dp"
-                android:text="" />
+                    <EditText
+                        android:id="@+id/txtDireccionSucursal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/yellowtail"
+                        android:hint="Dirección"
+                        android:minHeight="48dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/txtTelefonoSucursal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/yellowtail"
+                        android:hint="Teléfono"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/txtHorarioProducto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/yellowtail"
+                        android:hint="Horario de atención"
+                        android:minHeight="48dp"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/txtLatitudSucursal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/yellowtail"
+                        android:hint="Latitud"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/txtLongitudSucursal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:fontFamily="@font/yellowtail"
+                        android:hint="Longitud"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -139,7 +198,8 @@
                 android:padding="10dp"
                 android:text="Insertar"
                 android:textAlignment="center"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="?attr/colorOnSecondary"
+                android:backgroundTint="?attr/colorSecondary"
                 android:textSize="11sp" />
 
             <Button
@@ -151,6 +211,7 @@
                 android:padding="10dp"
                 android:text="Consultar"
                 android:textAlignment="center"
+                android:backgroundTint="?attr/colorPrimary"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="11sp" />
 
@@ -163,7 +224,8 @@
                 android:padding="10dp"
                 android:text="Eliminar"
                 android:textAlignment="center"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="?attr/colorOnSecondary"
+                android:backgroundTint="?attr/colorSecondary"
                 android:textSize="11sp" />
 
             <Button
@@ -175,6 +237,7 @@
                 android:padding="10dp"
                 android:text="Modificar"
                 android:textAlignment="center"
+                android:backgroundTint="?attr/colorPrimary"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="11sp" />
 
@@ -188,6 +251,7 @@
             android:text="Lista Sucursales"
             android:textAlignment="center"
             android:fontFamily="@font/yellowtail"
+            android:backgroundTint="?attr/colorPrimary"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="12sp" />
 
