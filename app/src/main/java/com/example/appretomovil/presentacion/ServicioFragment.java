@@ -1,6 +1,5 @@
 package com.example.appretomovil.presentacion;
 
-import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,13 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.appretomovil.R;
-import com.example.appretomovil.caso_uso.ServicioCasoUso;
-import com.example.appretomovil.dato.ProductoDB;
-import com.example.appretomovil.modelo.Servicio;
-import com.example.appretomovil.modelo.adaptador.ServicioAdaptador;
+import com.example.appretomovil.dato.rest.ServicioVolley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
 
 /**
  * Clase Fragment Servicio
@@ -60,17 +54,12 @@ public class ServicioFragment extends Fragment {
                  * Carga de fragment inicial en la pantalla
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.lytFragments, frgFormServicio).commit();
+                        R.id.lytFragments, frgFormServicio).addToBackStack(null).commit();
             }
         });
 
-        ProductoDB baseServicio = new ProductoDB(getContext());
-        ServicioCasoUso servicioCasoUso = new ServicioCasoUso();
-        Cursor cursor = baseServicio.getServicio();
-        List<Servicio> listado = servicioCasoUso.llenarArray(cursor);
-
-        ServicioAdaptador servicioAdaptador = new ServicioAdaptador(getContext(), listado);
-        listView.setAdapter(servicioAdaptador);
+        ServicioVolley servicioVolley = new ServicioVolley(getContext());
+        servicioVolley.getServicio(listView);
 
         // Inflate the layout for this fragment
         return view;

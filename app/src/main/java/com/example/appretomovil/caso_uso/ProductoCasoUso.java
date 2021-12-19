@@ -4,7 +4,10 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.widget.ImageView;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.appretomovil.modelo.Producto;
 
@@ -15,7 +18,7 @@ import java.util.List;
 /**
  * Clase Caso de Uso Producto
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
 public class ProductoCasoUso {
@@ -34,6 +37,28 @@ public class ProductoCasoUso {
     }
 
     /**
+     * Método para obtener el mapa de bits de la imagen para registrar
+     *
+     * @param imagen imagen a procesar
+     * @return mapa de bits de la imagen en string
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public String byteToString(byte[] imagen) {
+        return java.util.Base64.getEncoder().encodeToString(imagen);
+    }
+
+    /**
+     * Método para obtener el mapa de bits de la imagen para registrar
+     *
+     * @param imagen imagen a procesar
+     * @return mapa de bits de la imagen
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public byte[] stringToByte(String imagen){
+        return java.util.Base64.getDecoder().decode(imagen);
+    }
+
+    /**
      * Método para obtener el listado de datos en modo de cadena de texto
      *
      * @param cursor cursor con los datos
@@ -48,6 +73,27 @@ public class ProductoCasoUso {
                 buffer.append("ID:"+ cursor.getString(0) +
                         " ,NOMBRE: " + cursor.getString(1) +
                         " ,IMAGEN: " + cursor.getBlob(4).toString() + "\n");
+            }
+            return buffer.toString();
+        }
+    }
+
+    /**
+     * Método para obtener el listado de datos en modo de cadena de texto
+     *
+     * @param listado listado con los datos
+     * @return cadena de texto con los datos consultados
+     */
+    public String listadoToString(List<Producto> listado) {
+        if (listado.isEmpty()) {
+            return "No se encontraron datos";
+        } else {
+            StringBuffer buffer = new StringBuffer();
+
+            for (Producto item: listado) {
+                buffer.append("ID:"+ item.getId() +
+                        " ,NOMBRE: " + item.getNombre() +
+                        " ,IMAGEN: " + item.getImagen().toString() + "\n");
             }
             return buffer.toString();
         }

@@ -27,7 +27,7 @@ import com.example.appretomovil.R;
 /**
  * Clase Activity Main
  *
- * @version 1.2
+ * @version 1.3
  * @author Jhoan Villa G35 C4
  */
 public class MainActivity extends AppCompatActivity {
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                  * Carga de fragment de favorito en la pantalla
                  */
                 getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
-                        frgFavorito).commit();
+                        frgFavorito).addToBackStack(null).commit();
             }
         });
         btnNotificaciones.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
              * Carga de fragment inicial en la pantalla
              */
             getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgInicio)
-                    .commit();
+                    .addToBackStack(null).commit();
         }
         if (idItem == R.id.mniProducto) {
             /**
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
              * Carga de fragment inicial en la pantalla
              */
             getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgProducto)
-                    .commit();
+                    .addToBackStack(null).commit();
         }
         if (idItem == R.id.mniServicio) {
             /**
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
              * Carga de fragment inicial en la pantalla
              */
             getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgServicio)
-                    .commit();
+                    .addToBackStack(null).commit();
         }
         if (idItem == R.id.mniSucursal) {
             /**
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
              * Carga de fragment inicial en la pantalla
              */
             getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
-                    frgMapaSucursal).commit();
+                    frgMapaSucursal).addToBackStack(null).commit();
         }
         if (idItem == R.id.mniInfo) {
             /**
@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
              * Carga de fragment inicial en la pantalla
              */
             getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments, frgInfo)
-                    .commit();
+                    .addToBackStack(null).commit();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -289,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
                          * Carga de fragment inicial en la pantalla
                          */
                         getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
-                                frgProducto).commit();
+                                frgProducto).addToBackStack(null).commit();
                     }
                 })
                 .setNegativeButton("Ver favoritos", new DialogInterface.OnClickListener() {
@@ -304,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
                          * Carga de fragment de favorito en la pantalla
                          */
                         getSupportFragmentManager().beginTransaction().replace(R.id.lytFragments,
-                                frgFavorito).commit();
+                                frgFavorito).addToBackStack(null).commit();
                     }
                 })
                 .show();

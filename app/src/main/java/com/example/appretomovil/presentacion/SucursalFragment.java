@@ -1,6 +1,5 @@
 package com.example.appretomovil.presentacion;
 
-import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,19 +11,15 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.appretomovil.R;
-import com.example.appretomovil.caso_uso.SucursalCasoUso;
-import com.example.appretomovil.dato.ProductoDB;
-import com.example.appretomovil.modelo.Sucursal;
-import com.example.appretomovil.modelo.adaptador.SucursalAdaptador;
+import com.example.appretomovil.dato.rest.SucursalVolley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.List;
 
 /**
  * Clase Fragment Sucursal
  * (Antigua Activity)
  *
- * @version 1.2
+ * @version 1.3
  * @author Jhoan Villa G35 C4
  */
 public class SucursalFragment extends Fragment {
@@ -61,7 +56,7 @@ public class SucursalFragment extends Fragment {
                  * Carga de fragment inicial en la pantalla
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.lytFragments, frgFormSucursal).commit();
+                        R.id.lytFragments, frgFormSucursal).addToBackStack(null).commit();
             }
         });
 
@@ -78,17 +73,12 @@ public class SucursalFragment extends Fragment {
                  * Carga de fragment inicial en la pantalla
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.lytFragments, frgMapaSucursal).commit();
+                        R.id.lytFragments, frgMapaSucursal).addToBackStack(null).commit();
             }
         });
 
-        ProductoDB baseProducto = new ProductoDB(getContext());
-        SucursalCasoUso sucursalCasoUso = new SucursalCasoUso();
-        Cursor cursor = baseProducto.getSucursal();
-        List<Sucursal> listado = sucursalCasoUso.llenarArray(cursor);
-
-        SucursalAdaptador sucursalAdaptador = new SucursalAdaptador(getContext(), listado);
-        listView.setAdapter(sucursalAdaptador);
+        SucursalVolley sucursalVolley = new SucursalVolley(getContext());
+        sucursalVolley.getSucursal(listView);
 
         // Inflate the layout for this fragment
         return view;

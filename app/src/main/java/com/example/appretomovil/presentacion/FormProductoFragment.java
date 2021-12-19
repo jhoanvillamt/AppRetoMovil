@@ -3,14 +3,15 @@ package com.example.appretomovil.presentacion;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ import android.widget.Toast;
 
 import com.example.appretomovil.R;
 import com.example.appretomovil.caso_uso.ProductoCasoUso;
-import com.example.appretomovil.dato.ProductoDB;
+import com.example.appretomovil.dato.rest.ProductoVolley;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -70,7 +71,7 @@ public class FormProductoFragment extends Fragment {
     /**
      * Variable que representa la instacia con la base de datos
      */
-    private ProductoDB baseProducto;
+    private ProductoVolley volleyProducto;
 
     /**
      * Variable que representa la instancia con las funciones generales
@@ -104,7 +105,7 @@ public class FormProductoFragment extends Fragment {
         txtIdProducto = (EditText) view.findViewById(R.id.txtIdProducto);
         imgSelectedProducto = (ImageView) view.findViewById(R.id.imgSelectedProducto);
 
-        baseProducto = new ProductoDB(getContext());
+        volleyProducto = new ProductoVolley(getContext());
         productoCasoUso = new ProductoCasoUso();
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
@@ -117,10 +118,11 @@ public class FormProductoFragment extends Fragment {
             }
         });
         btnInsertarProducto.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 try {
-                    baseProducto.insertProducto(
+                    volleyProducto.insertProducto(
                             txtNombreProducto.getText().toString(),
                             Double.parseDouble(txtPrecioProducto.getText().toString()),
                             txtDescripcionProducto.getText().toString(),
@@ -140,23 +142,15 @@ public class FormProductoFragment extends Fragment {
             public void onClick(View v) {
                 String idText = txtIdProducto.getText().toString().trim();
                 if ("".equals(idText)) {
-                    Cursor cursor = baseProducto.getProducto();
-                    String resultado = productoCasoUso.cursorToString(cursor);
-                    Toast.makeText(getContext(), resultado, Toast.LENGTH_LONG).show();
+                    volleyProducto.getProductoString();
                 } else {
-                    Cursor cursor = baseProducto.getProductoById(Integer.parseInt(idText));
-                    if (cursor.getCount() == 0) {
-                        Toast.makeText(getContext(),  "No se encontraron datos",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        while (cursor.moveToNext()) {
-                            txtNombreProducto.setText(cursor.getString(1));
-                            txtPrecioProducto.setText(cursor.getString(2));
-                            txtDescripcionProducto.setText(cursor.getString(3));
-                            imgSelectedProducto.setImageBitmap(productoCasoUso.
-                                    cargarBitmap(cursor.getBlob(4)));
-                        }
-                    }
+                    volleyProducto.getProductoById(
+                            Integer.parseInt(idText),
+                            txtNombreProducto,
+                            txtDescripcionProducto,
+                            txtPrecioProducto,
+                            imgSelectedProducto
+                            );
                 }
             }
         });
@@ -170,7 +164,7 @@ public class FormProductoFragment extends Fragment {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Integer idProducto = Integer.parseInt(idProd);
-                    baseProducto.deleteProducto(idProducto);
+                    volleyProducto.deleteProducto(idProducto);
                     limpiarCampos();
                     Toast.makeText(getContext(), "El producto ha sido eliminado",
                             Toast.LENGTH_SHORT).show();
@@ -178,10 +172,11 @@ public class FormProductoFragment extends Fragment {
             }
         });
         btnModificarProducto.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 try {
-                    baseProducto.updateProducto(
+                    volleyProducto.updateProducto(
                             Integer.parseInt(txtIdProducto.getText().toString()),
                             txtNombreProducto.getText().toString(),
                             Double.parseDouble(txtPrecioProducto.getText().toString()),
@@ -209,7 +204,7 @@ public class FormProductoFragment extends Fragment {
                  * Carga de fragment inicial en la pantalla
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.lytFragments, frgProducto).commit();
+                        R.id.lytFragments, frgProducto).addToBackStack(null).commit();
             }
         });
 

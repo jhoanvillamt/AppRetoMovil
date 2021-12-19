@@ -3,14 +3,15 @@ package com.example.appretomovil.presentacion;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ import android.widget.Toast;
 
 import com.example.appretomovil.R;
 import com.example.appretomovil.caso_uso.ServicioCasoUso;
-import com.example.appretomovil.dato.ProductoDB;
+import com.example.appretomovil.dato.rest.ServicioVolley;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,7 +33,7 @@ import java.io.InputStream;
 /**
  * Clase Fragment Formulario Servicio
  *
- * @version 1.0
+ * @version 1.1
  * @author Jhoan Villa G35 C4
  */
 public class FormServicioFragment extends Fragment {
@@ -63,9 +64,9 @@ public class FormServicioFragment extends Fragment {
     private ImageView imgSelectedServicio;
 
     /**
-     * Variable que representa la instacia con la base de datos
+     * Variable que representa la instancia con la base de datos
      */
-    private ProductoDB baseProducto;
+    private ServicioVolley volleyServicio;
 
     /**
      * Variable que representa la instancia con las funciones generales
@@ -97,7 +98,7 @@ public class FormServicioFragment extends Fragment {
         txtIdServicio = (EditText) view.findViewById(R.id.txtIdServicio);
         imgSelectedServicio = (ImageView) view.findViewById(R.id.imgSelectedServicio);
 
-        baseProducto = new ProductoDB(getContext());
+        volleyServicio = new ServicioVolley(getContext());
         servicioCasoUso = new ServicioCasoUso();
 
         btnCargarImagen.setOnClickListener(new View.OnClickListener() {
@@ -110,10 +111,11 @@ public class FormServicioFragment extends Fragment {
             }
         });
         btnInsertarServicio.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 try {
-                    baseProducto.insertServicio(
+                    volleyServicio.insertServicio(
                             txtNombreServicio.getText().toString(),
                             txtDescripcionServicio.getText().toString(),
                             servicioCasoUso.imageViewToByte(imgSelectedServicio)
@@ -132,22 +134,14 @@ public class FormServicioFragment extends Fragment {
             public void onClick(View v) {
                 String idText = txtIdServicio.getText().toString().trim();
                 if ("".equals(idText)) {
-                    Cursor cursor = baseProducto.getServicio();
-                    String resultado = servicioCasoUso.cursorToString(cursor);
-                    Toast.makeText(getContext(), resultado, Toast.LENGTH_LONG).show();
+                    volleyServicio.getServicioString();
                 } else {
-                    Cursor cursor = baseProducto.getServicioById(Integer.parseInt(idText));
-                    if (cursor.getCount() == 0) {
-                        Toast.makeText(getContext(),  "No se encontraron datos",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        while (cursor.moveToNext()) {
-                            txtNombreServicio.setText(cursor.getString(1));
-                            txtDescripcionServicio.setText(cursor.getString(2));
-                            imgSelectedServicio.setImageBitmap(servicioCasoUso.
-                                    cargarBitmap(cursor.getBlob(3)));
-                        }
-                    }
+                    volleyServicio.getServicioById(
+                            Integer.parseInt(idText),
+                            imgSelectedServicio,
+                            txtNombreServicio,
+                            txtDescripcionServicio
+                            );
                 }
             }
         });
@@ -161,7 +155,7 @@ public class FormServicioFragment extends Fragment {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Integer idServicio = Integer.parseInt(idServ);
-                    baseProducto.deleteServicio(idServicio);
+                    volleyServicio.deleteServicio(idServicio);
                     limpiarCampos();
                     Toast.makeText(getContext(), "El servicio ha sido eliminado",
                             Toast.LENGTH_SHORT).show();
@@ -169,10 +163,11 @@ public class FormServicioFragment extends Fragment {
             }
         });
         btnModificarServicio.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 try {
-                    baseProducto.updateServicio(
+                    volleyServicio.updateServicio(
                             Integer.parseInt(txtIdServicio.getText().toString()),
                             txtNombreServicio.getText().toString(),
                             txtDescripcionServicio.getText().toString(),
@@ -199,7 +194,7 @@ public class FormServicioFragment extends Fragment {
                  * Carga de fragment inicial en la pantalla
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.lytFragments, frgServicio).commit();
+                        R.id.lytFragments, frgServicio).addToBackStack(null).commit();
             }
         });
 

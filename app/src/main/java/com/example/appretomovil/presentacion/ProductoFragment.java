@@ -1,6 +1,5 @@
 package com.example.appretomovil.presentacion;
 
-import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,13 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.appretomovil.R;
-import com.example.appretomovil.caso_uso.ProductoCasoUso;
-import com.example.appretomovil.dato.ProductoDB;
-import com.example.appretomovil.modelo.Producto;
-import com.example.appretomovil.modelo.adaptador.ProductoAdaptador;
+import com.example.appretomovil.dato.rest.ProductoVolley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
 
 /**
  * Clase Fragment Producto
@@ -60,17 +54,12 @@ public class ProductoFragment extends Fragment {
                  * Carga de fragment inicial en la pantalla
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.lytFragments, frgFormProducto).commit();
+                        R.id.lytFragments, frgFormProducto).addToBackStack(null).commit();
             }
         });
 
-        ProductoDB baseProducto = new ProductoDB(getContext());
-        ProductoCasoUso productoCasoUso = new ProductoCasoUso();
-        Cursor cursor = baseProducto.getProducto();
-        List<Producto> listado = productoCasoUso.llenarArray(cursor);
-
-        ProductoAdaptador productoAdaptador = new ProductoAdaptador(getContext(), listado);
-        listView.setAdapter(productoAdaptador);
+        ProductoVolley productoVolley = new ProductoVolley(getContext());
+        productoVolley.getProducto(listView);
 
         // Inflate the layout for this fragment
         return view;

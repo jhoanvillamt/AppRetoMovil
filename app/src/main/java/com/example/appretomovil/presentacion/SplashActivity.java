@@ -15,7 +15,7 @@ import com.example.appretomovil.R;
  * Clase Activity Splash
  * (Anterior Activity Intro)
  *
- * @version 1.1
+ * @version 1.3
  * @author Jhoan Villa G35 C4
  */
 public class SplashActivity extends AppCompatActivity {
@@ -69,6 +69,7 @@ public class SplashActivity extends AppCompatActivity {
 
                     carga+=5;
                 }
+                finish();
             }
         });
         hilo.start();

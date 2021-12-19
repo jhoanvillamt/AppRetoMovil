@@ -3,14 +3,15 @@ package com.example.appretomovil.presentacion;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ import android.widget.Toast;
 
 import com.example.appretomovil.R;
 import com.example.appretomovil.caso_uso.SucursalCasoUso;
-import com.example.appretomovil.dato.ProductoDB;
+import com.example.appretomovil.dato.rest.SucursalVolley;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,7 +33,7 @@ import java.io.InputStream;
 /**
  * Clase Fragment Formulario Sucursal
  *
- * @version 1.1
+ * @version 1.2
  * @author Jhoan Villa G35 C4
  */
 public class FormSucursalFragment extends Fragment {
@@ -85,7 +86,7 @@ public class FormSucursalFragment extends Fragment {
     /**
      * Variable que representa la instacia con la base de datos
      */
-    private ProductoDB baseProducto;
+    private SucursalVolley volleySucursal;
 
     /**
      * Variable que representa la instancia con las funciones generales
@@ -121,7 +122,7 @@ public class FormSucursalFragment extends Fragment {
         txtIdSucursal = (EditText) view.findViewById(R.id.txtIdSucursal);
         imgSelectedSucursal = (ImageView) view.findViewById(R.id.imgSelectedSucursal);
 
-        baseProducto = new ProductoDB(getContext());
+        volleySucursal = new SucursalVolley(getContext());
         sucursalCasoUso = new SucursalCasoUso();
 
         btnCargarImagen.setOnClickListener(new View.OnClickListener() {
@@ -134,16 +135,17 @@ public class FormSucursalFragment extends Fragment {
             }
         });
         btnInsertarSucursal.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 try {
-                    baseProducto.insertSucursal(
+                    volleySucursal.insertSucursal(
                             txtNombreSucursal.getText().toString(),
                             txtDireccionSucursal.getText().toString(),
                             Integer.parseInt(txtTelefonoSucursal.getText().toString()),
                             txtHorarioSucursal.getText().toString(),
-                            Float.parseFloat(txtLatitudSucursal.getText().toString()),
-                            Float.parseFloat(txtLongitudSucursal.getText().toString()),
+                            Double.parseDouble(txtLatitudSucursal.getText().toString()),
+                            Double.parseDouble(txtLongitudSucursal.getText().toString()),
                             sucursalCasoUso.imageViewToByte(imgSelectedSucursal)
                     );
                     limpiarCampos();
@@ -160,26 +162,18 @@ public class FormSucursalFragment extends Fragment {
             public void onClick(View v) {
                 String idText = txtIdSucursal.getText().toString().trim();
                 if ("".equals(idText)) {
-                    Cursor cursor = baseProducto.getSucursal();
-                    String resultado = sucursalCasoUso.cursorToString(cursor);
-                    Toast.makeText(getContext(), resultado, Toast.LENGTH_LONG).show();
+                    volleySucursal.getSucursalString();
                 } else {
-                    Cursor cursor = baseProducto.getSucursalById(Integer.parseInt(idText));
-                    if (cursor.getCount() == 0) {
-                        Toast.makeText(getContext(),  "No se encontraron datos",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        while (cursor.moveToNext()) {
-                            txtNombreSucursal.setText(cursor.getString(1));
-                            txtDireccionSucursal.setText(cursor.getString(2));
-                            txtTelefonoSucursal.setText(cursor.getString(3));
-                            txtHorarioSucursal.setText(cursor.getString(4));
-                            txtLatitudSucursal.setText(cursor.getString(5));
-                            txtLongitudSucursal.setText(cursor.getString(6));
-                            imgSelectedSucursal.setImageBitmap(sucursalCasoUso.
-                                    cargarBitmap(cursor.getBlob(7)));
-                        }
-                    }
+                    volleySucursal.getSucursalById(
+                            Integer.parseInt(idText),
+                            txtNombreSucursal,
+                            txtDireccionSucursal,
+                            txtTelefonoSucursal,
+                            txtHorarioSucursal,
+                            txtLatitudSucursal,
+                            txtLongitudSucursal,
+                            imgSelectedSucursal
+                            );
                 }
             }
         });
@@ -193,7 +187,7 @@ public class FormSucursalFragment extends Fragment {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     Integer idSucursal = Integer.parseInt(idSuc);
-                    baseProducto.deleteSucursal(idSucursal);
+                    volleySucursal.deleteSucursal(idSucursal);
                     limpiarCampos();
                     Toast.makeText(getContext(), "La sucursal ha sido eliminada",
                             Toast.LENGTH_SHORT).show();
@@ -201,17 +195,18 @@ public class FormSucursalFragment extends Fragment {
             }
         });
         btnModificarSucursal.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 try {
-                    baseProducto.updateSucursal(
+                    volleySucursal.updateSucursal(
                             Integer.parseInt(txtIdSucursal.getText().toString()),
                             txtNombreSucursal.getText().toString(),
                             txtDireccionSucursal.getText().toString(),
                             Integer.parseInt(txtTelefonoSucursal.getText().toString()),
                             txtHorarioSucursal.getText().toString(),
-                            Float.parseFloat(txtLatitudSucursal.getText().toString()),
-                            Float.parseFloat(txtLongitudSucursal.getText().toString()),
+                            Double.parseDouble(txtLatitudSucursal.getText().toString()),
+                            Double.parseDouble(txtLongitudSucursal.getText().toString()),
                             sucursalCasoUso.imageViewToByte(imgSelectedSucursal)
                     );
                     limpiarCampos();
@@ -235,7 +230,7 @@ public class FormSucursalFragment extends Fragment {
                  * Carga de fragment inicial en la pantalla
                  */
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.lytFragments, frgSucursal).commit();
+                        R.id.lytFragments, frgSucursal).addToBackStack(null).commit();
             }
         });
 
@@ -251,7 +246,9 @@ public class FormSucursalFragment extends Fragment {
         txtNombreSucursal.setText("");
         txtDireccionSucursal.setText("");
         txtTelefonoSucursal.setText("");
-        txtTelefonoSucursal.setText("");
+        txtHorarioSucursal.setText("");
+        txtLatitudSucursal.setText("");
+        txtLongitudSucursal.setText("");
         imgSelectedSucursal.setImageResource(R.mipmap.ic_launcher);
     }
 
